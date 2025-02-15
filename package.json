@@ -1,0 +1,22 @@
+{
+  "name": "ytube",
+  "version": "1.0.0",
+  "description": "a backend code",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "MERN",
+    "JAVAscript",
+    "backend",
+    "react"
+  ],
+  "author": "Bhavin",
+  "license": "ISC",
+  "dependencies": {
+    "prettier": "^3.5.1"
+  }
+}
