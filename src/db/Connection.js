@@ -14,4 +14,10 @@ const connectDB = async () => {
 };
 
 export default connectDB;
-// Here we are using the connectDB function to connect to the MongoDB database. We are using the mongoose library to connect to the MongoDB database. We are using the constants.js file to get the database name. We are using the process.env to get the environment variables. We are using the console.log method to log the MongoDB connected message. We are using the console.error method to log the MongoDB connection failed message. We are using the process.exit method to exit the process with an error code. We are using the export default connectDB statement to export the connectDB function.
+// Here we are using the connectDB function to connect to the MongoDB database.
+//  We are using the mongoose library to connect to the MongoDB database.
+// We are using the constants.js file to get the database name. We are using the process.env to get the environment variables.
+// We are using the console.log method to log the MongoDB connected message.
+// We are using the console.error method to log the MongoDB connection failed message.
+// We are using the process.exit method to exit the process with an error code.
+// We are using the export default connectDB statement to export the connectDB function.
