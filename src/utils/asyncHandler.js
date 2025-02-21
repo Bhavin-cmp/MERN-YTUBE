@@ -1,6 +1,6 @@
 // This is a middleware function that takes a function as an argument and returns a function that takes three arguments: req, res, and next.
 const asyncHandler = (requestHandler) => {
-  (req, res, next) => {
+  return (req, res, next) => {
     Promise.resolve(requestHandler(req, res, next)).catch((err) => next(err));
   };
 };

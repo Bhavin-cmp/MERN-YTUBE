@@ -2,10 +2,11 @@ import { v2 as cloudinary } from "cloudinary";
 import fs from "fs";
 
 // Configuring cloudinary
+
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
+  api_secret: process.env.CLOUDINARY_SECRET_KEY,
 });
 
 // Upload an image
@@ -19,8 +20,10 @@ const uploadOnCloudinary = async (localFilePath) => {
     const response = await cloudinary.uploader.upload(localFilePath, {
       resource_type: "auto",
     });
+    // console.log("Cloudinary Response", response);
     // Return the image URL
     console.log("Image uploaded successfully", response.url);
+    fs.unlinkSync(localFilePath);
     return response;
   } catch (error) {
     if (fs.existsSync(localFilePath)) {
@@ -47,4 +50,5 @@ const uploadOnCloudinary = async (localFilePath) => {
     }
   }
 };
+
 export { uploadOnCloudinary };

@@ -51,7 +51,7 @@ const userSchema = new mongoose.Schema(
 
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) return next(); // If the password is not modified, skip this middleware.
-  this.password = bcrypt.hashSync(this.password, 10); // Hash the password before saving the user model.
+  this.password = await bcrypt.hashSync(this.password, 10); // Hash the password before saving the user model.
   next();
 });
 userSchema.methods.isPasswordCorrect = async function (password) {

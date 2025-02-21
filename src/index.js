@@ -2,17 +2,11 @@
 
 import dotenv from "dotenv";
 import connectDB from "./db/Connection.js";
+import { app } from "./app.js";
 
 dotenv.config({ path: "./env" }); // This will configure the environment variables.
 
-connectDB(); // This will connect to the database.
-
-app
-  .on("Error", (error) => {
-    // This will handle the error event.
-    console.error("Error", error); // This will log the error message.
-    throw error; // This will throw the error and stop the server from running.
-  })
+connectDB()
   .then(() => {
     // This will handle the success event.
     app.listen(process.env.PORT || 8000, () => {
