@@ -27,7 +27,6 @@ const generateAccessAndRefreshTokens = async (userId) => {
 const registerUser = asyncHandler(async (req, res) => {
   //------------------------------------------------ STEPS TO REGISTER USERS -------------------------------------------------//
   /* 
-
       1. Get user details from frontend.
       2. Validate Data.
       3. Check if user already exist : userName,Email
@@ -268,7 +267,7 @@ const changeCurrentPassword = asyncHandler(async (req, res) => {
 const getCurrentUser = asyncHandler(async (req, res) => {
   return res
     .status(200)
-    .json(200, req.user, "Current User Feetched Successfully");
+    .json(new ApiResponse(200, req.user, "Current User Feetched Successfully"));
 });
 
 const updateAccountDetails = asyncHandler(async (req, res) => {
@@ -318,6 +317,8 @@ const updateUserAvatar = asyncHandler(async (req, res) => {
   return res
     .status(200)
     .json(new ApiResponse(200, user, "Avatar Updated Successfully"));
+
+  //Delete old avatar
 });
 const updateUserCoverImage = asyncHandler(async (req, res) => {
   const coverImageLocalPath = req.file?.path;
