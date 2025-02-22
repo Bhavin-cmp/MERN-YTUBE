@@ -56,7 +56,7 @@ userSchema.pre("save", async function (next) {
 });
 userSchema.methods.isPasswordCorrect = async function (password) {
   // Compare the password sent by the user with the hashed password stored in the database.
-  return await bcrypt.compare(password, this, password);
+  return await bcrypt.compare(password, this.password);
 };
 // Generate JWT token for the user
 userSchema.methods.generateAccessToken = function () {

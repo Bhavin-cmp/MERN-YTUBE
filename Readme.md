@@ -9,7 +9,7 @@ Usually we put Helper Function, Configuration Files, API Utilities, Data Process
 Generally we create Higher order function {HOC}in Utility, Means
 A Higher-Order-Function is a function that either takes one or more function as an argument or returns a function as its result. it is a powerful feature in javascript, and commonly used for creating reusable and composable code.
 
-=====================================================JWT=============================================================
+# JWT
 
 - JWT is a bearer token. means ye token jiske pass hai me usko data bhej dunga, wo authorized person hai.
   Access Token and Refresh Token
@@ -17,12 +17,39 @@ A Higher-Order-Function is a function that either takes one or more function as 
 
 ## ACCESS TOKEN :
 
+- An Access token is a credential that allows a client to access protected resources on behaf of a user.
 - Access token are used to grant access to protected resources (API, user Data)
 - They typically have a short lifespan
-- sent with each request to the server and authorize access to resource.
+- Sent with every API request (usually in the Authorization header) to authenticate the client.
+
+### Example :
+
+```javascript
+GET /api/user-profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+```
 
 ## REFRESH TOKEN
 
 - Refresh token are used to obtain new access token without requiring the useer to re-authenticate.
 - they have longer lifespan.
 - when access token expires the client uses the refresh token to request a new access token.
+
+### Example
+
+```javascript
+POST /oauth/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=refresh_token&refresh_token=abc123xyz...
+
+```
+
+| Feature        | Access Token               | Refresh Token                        |
+| -------------- | -------------------------- | ------------------------------------ |
+| Purpose        | Access Protected Resources | Obtain new access tokens             |
+| Lifespan       | Short (e.g., 1 hour)       | Long (e.g., weeks or indefinite)     |
+| Sent with      | Every API request          | Only when refreshing access token    |
+| Security Risk  | Lower (short-lived)        | Higher (long-lived, must be secured) |
+| Revocability   | Expires naturally          | Can be revoked manually              |
+| Typical Format | JWT or opaque string       | Opaque string (less often JWT)       |
